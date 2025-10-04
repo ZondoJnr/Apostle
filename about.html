@@ -61,7 +61,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: var(--purple);
+      color: var(--white);
       text-align: center;
       z-index: 2;
     }
@@ -99,6 +99,77 @@
       color: blue;
       text-decoration: underline;
     }
+
+    /* Timeline Styles */
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline-line {
+      width: 4px;
+      background-color: var(--purple);
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1.5rem 2rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--purple);
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+    .timeline-item.left::before {
+      right: -10px;
+    }
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+    .timeline-item.right::before {
+      left: -10px;
+    }
+    .timeline-content {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .text-purple {
+      color: var(--purple);
+    }
+    @media (max-width: 767px) {
+      .timeline::before {
+        left: 8px;
+      }
+      .timeline-item {
+        width: 100%;
+        text-align: left;
+        padding-left: 40px;
+      }
+      .timeline-item.left::before,
+      .timeline-item.right::before {
+        left: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -107,7 +178,7 @@
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="media/logo.jpg" alt="Logo" width="60" height="60" class="me-2 rounded-circle" />
-        Kingdom Life Ministries
+        Kingdom Life Ministries International
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
@@ -127,8 +198,8 @@
   <section class="hero">
     <img src="media/hero2.jpg" alt="Pastor Lungi M">
     <div class="content">
-      <h1>About Thee Apostle Lungi M</h1>
-      <p class="lead">Visionary Leader | Author | Chaplain | Coach | Speaker</p>
+      <h1>About Apostle Lungi M</h1>
+      <p class="lead">Thee Apostle | Author | Coach | KZN Provincial Chaplain | Marriage officer | Speaker</p>
     </div>
   </section>
 
@@ -147,12 +218,45 @@
           She currently serves as the Provincial Chaplain of KwaZulu-Natal in the Office of the Honourable Premier Thami Ntuli, providing spiritual guidance, counsel, and leadership within the province’s highest governmental sphere.
           Apostle Lungi M is known for her passion for instilling hope in the hopeless, building confidence in those facing trials in life, and equipping leaders with the tools to reach their full potential. Her ministry extends beyond the pulpit, working with churches, businesses, and government departments to strengthen leadership, teamwork, and community impact.
           She is the author of Facing My Fears and Leadership Without Gender Limits, and a former TV and radio presenter, with a strong media presence. Through powerful programmes such as “Women, Shake Off Your Dust,” “Isibaya Samadoda,” and various youth and community development initiatives, she addresses pressing social issues while offering spiritual guidance and practical empowerment.
-          Currently pursuing an LLB degree through UNISA and holding a Bachelor’s in Theology from Vision International University, Apostle Lungi M blends spiritual wisdom with academic insight. Her voice resonates in conferences, workshops, and community platforms, where she teaches people to face life’s challenges with “unwavering, stubborn faith” and to live effectively on earth without letting trials dim their light.
+          Currently pursuing an LLB degree through UNISA and holding a Bachelor’s in Theology from Vision International University, Apostle Lungi M blends spiritual wisdom with academic insight. Her voice resonates in conferences, workshops, and community platforms, where she teaches people to face life’s challenges with “unwavering, stubborn faith” and to live effectively on earth without letting trials dim their light.
         </p>
         <p class="fs-5">
           Her work spans church leadership, chaplaincy, authorship, and coaching. She has impacted countless lives,
           guiding communities in faith, integrity, and excellence.
         </p>
+      </div>
+    </div>
+
+    <!-- Education Timeline -->
+    <div class="mt-5">
+      <h3 class="section-title">Academic Qualifications</h3>
+
+      <div class="timeline position-relative mt-5">
+        <div class="timeline-line position-absolute top-0 start-50 translate-middle-x"></div>
+
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h5 class="fw-bold text-purple">University of South Africa (UNISA)</h5>
+            <p class="mb-1"><strong>Qualification:</strong> LLB Degree (Bachelor of Laws)</p>
+            <p class="text-muted">Year: Currently Studying</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h5 class="fw-bold text-purple">Vision International University</h5>
+            <p class="mb-1"><strong>Qualification:</strong> Bachelor’s Degree in Theology</p>
+            <p class="text-muted">Year: 2018</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h5 class="fw-bold text-purple">Mangosuthu University of Technology</h5>
+            <p class="mb-1"><strong>Qualification:</strong> Diploma in Office Administration</p>
+            <p class="text-muted">Year: 2003</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -200,12 +304,12 @@
       </div>
       <div class="col-md-4">
         <img src="media/about 2.jpg" class="img-fluid rounded mb-2" alt="Coaching">
-        <h5>Coach & Speaker</h5>
-        <p>Empowering individuals and communities through mentorship, coaching, and speaking engagements.</p>
+        <h5>KZN Provincial Chaplain</h5>
+        <p>Establishing Faith Leaders Structures across the KZN Province an co-ordinating Faith leaders to work with KZN government to inspire new hope. Serving faith based communities in a fight against crime, GBV, and social ills.</p>
       </div>
       <div class="col-md-4">
         <img src="media/about 3.jpg" class="img-fluid rounded mb-2" alt="Author">
-        <h5>Author & Chaplain</h5>
+        <h5>Public Speaker & Author</h5>
         <p>Inspiring writings and spiritual guidance impacting believers worldwide.</p>
       </div>
     </div>
